@@ -1,4 +1,4 @@
-git status"""
+"""
 Resume parser module for SmartHire.
 Extracts raw text from PDF, DOCX, and TXT files.
 Also performs basic structural extraction (email, phone, estimated sections).
