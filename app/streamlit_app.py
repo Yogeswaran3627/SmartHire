@@ -13,15 +13,15 @@ import sys
 import io
 from pathlib import Path
 
-from src.mentor import ask_mentor
-
-# Add project root to path
+# Add project root before importing src modules
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 import pandas as pd
-# pyrefly: ignore [missing-import]
+# pyrefly: ignore[missing-import]
 import streamlit as st
+
+from src.mentor import ask_mentor
 
 from src.config import (
     CLEAN_RESUMES_PATH,
