@@ -545,7 +545,13 @@ with tabs[2]:
     with s_col1:
         search_kw = st.text_input("Search Keyword / Title / Skills:", placeholder="e.g. Machine Learning, Manager, React")
     with s_col2:
-        source_filt = st.selectbox("Filter Source:", ["All Sources"] + sorted(jobs_df["source"].unique().tolist()))
+        if "source" in jobs_df.columns:
+    source_filt = st.selectbox(
+        "Filter Source:",
+        ["All Sources"] + sorted(jobs_df["source"].dropna().astype(str).unique().tolist())
+    )
+else:
+    source_filt = "All Sources"
     with s_col3:
         max_rows_disp = st.selectbox("Max rows to display:", [50, 100, 250, 500], index=1)
 
